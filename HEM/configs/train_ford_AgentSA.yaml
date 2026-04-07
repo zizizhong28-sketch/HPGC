@@ -1,0 +1,17 @@
+defaults:
+  - default.yaml
+  - model: AgentSA.yaml
+  - data: ford_AgentSA.yaml
+
+train:
+  type: 'ford'
+  load_ckpt: 'outputs/ford/2025-10-08/00-06-28/ckpt/epoch=27-step=250796.ckpt'
+  load_pretrain: True
+  lr: 0.0001
+  lr_scheduler:
+    step_size: 3
+  epoch: 50
+
+hydra:
+  run:
+    dir: ./outputs/ford/${now:%Y-%m-%d}/${now:%H-%M-%S}
